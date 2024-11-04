@@ -1,0 +1,36 @@
+{
+  "partners" : [
+    {
+      "id" : 1,
+      "company_name" : "Udemy",
+      "image_link" : "/udemy.svg"
+    },
+    {
+      "id": 2,
+      "company_name" : "Coding Ninja",
+      "image_link" : "/coding-ninja.svg"
+    }
+    ,{
+      "id": 3,
+      "company_name" : "Course Era",
+      "image_link" : "/coursera.svg"
+    },{
+      "id": 4,
+      "company_name" : "IBM",
+      "image_link" : "/ibm.svg"
+    },{
+      "id" : 5,
+      "company_name" : "Moodle",
+      "image_link" : "/moodle.svg"
+    },
+    {
+      "id" : 6,
+      "company_name" : "Podio",
+      "image_link" : "/podio.svg"
+    },{
+      "id" : 7,
+      "company_name" : "Namaste Dev",
+      "image_link" : "/namaste-dev.png"
+    }
+  ]
+}
