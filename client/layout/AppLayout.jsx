@@ -17,7 +17,7 @@ const AppLayout = ({children}) => {
                 <main>
                     {children}
                 </main>
-            <footer className="bg-gray-800">
+            <footer className="bg-black">
                 {!hideHeaderRoutes.includes(location?.pathname) && !isCourseProgressPage && <Footer/>}
             </footer>
         </>
