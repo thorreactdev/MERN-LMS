@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
 import http from "http"; // Import http for Socket.IO
 import { Server } from "socket.io";
+import path from 'path';
 dotenv.config();
 
 //routes import statement
@@ -16,6 +17,7 @@ import orderRoute from "./router/user/orderRouter.js";
 import courseProgressRoute from "./router/user/courseProgressRouter.js";
 
 mongoose.connect(process.env.MONGO_DB_URL).then(() => console.log("Connected to MongoDB")).catch((err) => console.log(err));
+const __dirname = path.resolve();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -50,8 +52,6 @@ app.use("/api", orderRoute);
 app.use("/api",courseProgressRoute);
 
 
-
-
 // Set up socket.io connection
 io.on('connection', (socket) => {
     console.log('A user connected:', socket.id);
@@ -59,6 +59,12 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('User disconnected:', socket.id);
     });
+});
+
+app.use(express.static(path.join(__dirname, '/client/dist')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
 });
 
 server.listen(PORT , ()=> console.log(`Server running on port ${PORT}`));
