@@ -6,6 +6,7 @@ import Footer from "@/components/Footer.jsx";
 const AppLayout = ({children}) => {
     const location = useLocation();
     const hideHeaderRoutes = ["/cancel_payment", "/success"];
+    const hideFooters = ["/create-new-course", "/admin-dashboard" , "/my_courses", "/cancel_payment", "/success"]
     const isCourseProgressPage = location?.pathname.startsWith("/course-progress-page/");
 
     return (
@@ -18,7 +19,7 @@ const AppLayout = ({children}) => {
                     {children}
                 </main>
             <footer className="bg-black">
-                {!hideHeaderRoutes.includes(location?.pathname) && !isCourseProgressPage && <Footer/>}
+                {!hideFooters.includes(location?.pathname) && !isCourseProgressPage && <Footer/>}
             </footer>
         </>
     )
