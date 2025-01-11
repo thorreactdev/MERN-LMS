@@ -1,18 +1,25 @@
 import {Toaster} from "@/components/ui/toaster.jsx";
 import Header from "@/components/Header.jsx";
-import {SidebarProvider, SidebarTrigger} from "@/components/ui/sidebar"
+import {useLocation} from "react-router-dom";
+import Footer from "@/components/Footer.jsx";
 
 const AppLayout = ({children}) => {
+    const location = useLocation();
+    const hideHeaderRoutes = ["/cancel_payment", "/success"];
+    const isCourseProgressPage = location?.pathname.startsWith("/course-progress-page/");
+
     return (
         <>
             <Toaster/>
-            <header className="w-full">
-                <Header/>
+            <header className="w-full sticky top-0 left-0 z-50">
+                {!hideHeaderRoutes.includes(location?.pathname) && !isCourseProgressPage && <Header />}
             </header>
                 <main>
                     {children}
                 </main>
-            <footer></footer>
+            <footer className="bg-gray-800">
+                {!hideHeaderRoutes.includes(location?.pathname) && !isCourseProgressPage && <Footer/>}
+            </footer>
         </>
     )
 }

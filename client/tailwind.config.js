@@ -1,3 +1,4 @@
+
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
@@ -6,6 +7,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
   	extend: {
   		borderRadius: {
   			lg: 'var(--radius)',
@@ -66,5 +68,8 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+	  require("tailwindcss-animate"),
+  ],
 }
+

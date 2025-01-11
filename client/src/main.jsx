@@ -5,6 +5,7 @@ import App from './App.jsx'
 import {AuthProvider} from "@/context/AuthContext.jsx";
 import {BrowserRouter} from "react-router-dom";
 import {AdminProvider} from "@/context/AdminContext.jsx";
+import {StudentProvider} from "@/context/StudentContext.jsx";
 
 
 
@@ -13,7 +14,9 @@ createRoot(document.getElementById('root')).render(
         <BrowserRouter>
             <AuthProvider>
             <AdminProvider>
+                <StudentProvider>
                 <App/>
+                </StudentProvider>
             </AdminProvider>
             </AuthProvider>
         </BrowserRouter>

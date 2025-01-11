@@ -4,7 +4,6 @@ import jwt from "jsonwebtoken";
 export const authCheckUser = async (req, res, next) => {
     try {
         const token = req?.cookies?.token;
-        console.log(token);
         // Check if token is missing
         if (!token) {
             return next(errorHandler(401, "Token Not Found"));

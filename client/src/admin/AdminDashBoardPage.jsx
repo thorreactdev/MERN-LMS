@@ -2,14 +2,15 @@
 import { ChartBarSquareIcon,BookOpenIcon,ArrowLeftStartOnRectangleIcon} from "@heroicons/react/24/outline";
 import AdminDashBoard from "@/admin/AdminDashBoard.jsx";
 import AdminCoursePage from "@/admin/AdminCoursePage.jsx";
-import {useState} from "react";
+// import {useEffect, useState} from "react";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import {Button} from "@/components/ui/button.jsx";
-
+import {useState} from "react";
+// import { useAdmin } from "@/context/AdminContext.jsx";
 
 function AdminDashBoardPage() {
     const[activeTab , setActiveTab] = useState("Dashboard");
-    // Menu items.
+
     const menuItems = [
         {
             id:1,

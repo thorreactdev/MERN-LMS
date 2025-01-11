@@ -25,16 +25,20 @@ function ProtectedRouteChecker({ children}) {
                         description: "Your session has expired. Please log in again.",
                         variant: "destructive",
                     });
-                    await handleSignOut();
-                    navigate("/login");
+                    setTimeout(async()=>{
+                        await handleSignOut();
+                        navigate("/login");
+                    },4000);
                 }else if(data?.message === "Invalid Token"){
                     toast({
                         title: "Invalid Token",
                         description: "Please log in to continue.",
                         variant: "destructive",
                     });
-                    await handleSignOut();
-                    navigate("/login");
+                    setTimeout(async()=>{
+                        await handleSignOut();
+                        navigate("/login");
+                    },4000);
                 }else if(data?.message === "Token Not Found"){
                     toast({
                         title : "Token Not Found",

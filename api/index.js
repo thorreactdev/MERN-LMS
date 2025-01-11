@@ -9,6 +9,11 @@ dotenv.config();
 //routes import statement
 import authRoute from "./router/authRouter.js";
 import userRoute from "./router/userRouter.js";
+import mediaRoute from "./router/admin/adminMediaUploadRouter.js";
+import courseRoute from "./router/admin/courseRouter.js";
+import studentRoute from "./router/user/studentCourseRouter.js";
+import orderRoute from "./router/user/orderRouter.js";
+import courseProgressRoute from "./router/user/courseProgressRouter.js";
 
 mongoose.connect(process.env.MONGO_DB_URL).then(() => console.log("Connected to MongoDB")).catch((err) => console.log(err));
 
@@ -35,10 +40,14 @@ app.use(express.json());
 app.use(cookieParser());
 
 
-//routes declartion
+//routes declaration
 app.use("/api" , authRoute);
 app.use("/api" , userRoute);
-
+app.use("/api",mediaRoute);
+app.use("/api", courseRoute);
+app.use("/api", studentRoute);
+app.use("/api", orderRoute);
+app.use("/api",courseProgressRoute);
 
 
 
@@ -53,6 +62,7 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT , ()=> console.log(`Server running on port ${PORT}`));
+
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const message = err.message || 'Internal Server Error';

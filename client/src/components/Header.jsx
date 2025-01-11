@@ -11,7 +11,7 @@ export default function Header() {
     const [isUserModalOpen, setIsUserModalOpen] = useState(false);
 
     return (<Disclosure as="nav" className="bg-white shadow-xl">
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 ">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="">
                         <div className="flex flex-shrink-0 items-center">
@@ -66,7 +66,7 @@ export default function Header() {
                                         )}
                                         {user && user?.role === "user" && (
                                             <MenuItem>
-                                                <Link to="course_page"
+                                                <Link to="/my_courses"
                                                       className="cursor-pointer font-medium block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                                                     My Courses
                                                 </Link>

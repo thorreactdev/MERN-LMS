@@ -14,8 +14,9 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import {useAuth} from "@/context/AuthContext.jsx";
+import SpinnerLoader from "@/utils/SpinnerLoader.jsx";
 
-const UserControllerModel = ({ onClose , title , description , confirmationText , onConfirm }) => {
+const UserControllerModel = ({ onClose , title , description , confirmationText , onConfirm , navigateToPage , loading }) => {
     const { user } = useAuth();
     const [userName, setUserName] = useState("");
     const { toast } = useToast();
@@ -33,7 +34,7 @@ const UserControllerModel = ({ onClose , title , description , confirmationText 
             if (user?.username === userName) {
                 await onConfirm();
                 onClose();
-                navigate("/");
+                navigate(navigateToPage);
             } else {
                 toast({
                     title: "User name not matched",
@@ -73,7 +74,7 @@ const UserControllerModel = ({ onClose , title , description , confirmationText 
                 </div>
                 <DialogFooter>
                     <Button onClick={handleSubmit} variant="destructive">
-                        {confirmationText}
+                        {loading ? <SpinnerLoader loadingText={"Wait Deleting..."}/> : confirmationText}
                     </Button>
                 </DialogFooter>
             </DialogContent>

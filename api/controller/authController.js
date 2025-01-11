@@ -75,7 +75,7 @@ export const authLogin = async (req, res, next) => {
             return next(errorHandler(400, 'Invalid Password'));
         }
         const token = jwt.sign({id: existingUser?._id}, process.env.JWT_SECRET, {expiresIn: "2d"});
-        console.log(token);
+
         const {password: pass, ...rest} = existingUser._doc;
         res.cookie("token", token, {httpOnly: true}).status(200).json({
             success: true,
@@ -94,7 +94,7 @@ export const googleLogin =  async (req, res, next) => {
         const { email , username , avatar } = req.body;
         const alreadyGoogleUser = await User.findOne( { email });
         if(alreadyGoogleUser){
-            const token = jwt.sign({id: alreadyGoogleUser._id}, process.env.JWT_SECRET, {expiresIn: "2d"});
+            const token = jwt.sign({id: alreadyGoogleUser._id , role: alreadyGoogleUser?.role}, process.env.JWT_SECRET, {expiresIn: "2d"});
             const { password : pass , ...rest} = alreadyGoogleUser._doc;
             res.cookie("token" , token, {httpOnly: true}).status(200).json({
                 success: true,

@@ -7,3 +7,18 @@ export const courseCurriculumInitialFormData =[
 
     }
 ]
+
+export const courseLandingInitialFormData = {
+    courseTitle: "",
+    category: "",
+    level: "",
+    primaryLanguage: "",
+    subtitle: "",
+    description: "",
+    pricing: "",
+    objectives: "",
+    welcomeMessage: "",
+    image: "",
+    public_id:"",
+    discount : ""
+}
