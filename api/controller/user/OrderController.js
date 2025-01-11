@@ -83,8 +83,8 @@ export const createOrder = async (req, res, next) => {
             metadata: {
                 userId, courseId
             },
-            success_url: `http://localhost:5173/success?session_id={CHECKOUT_SESSION_ID}&orderId=${newlyCreatedOrder?._id}&token=${cryptoSessionToken}&courseId=${courseId}`,
-            cancel_url: `http://localhost:5173/cancel_payment?token=${cryptoSessionToken}`,
+            success_url: `https://mern-lms-z3ed.onrender.com/success?session_id={CHECKOUT_SESSION_ID}&orderId=${newlyCreatedOrder?._id}&token=${cryptoSessionToken}&courseId=${courseId}`,
+            cancel_url: `https://mern-lms-z3ed.onrender.com/cancel_payment?token=${cryptoSessionToken}`,
         });
 
         res.status(201).json({
