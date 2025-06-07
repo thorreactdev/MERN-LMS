@@ -23,7 +23,7 @@ import PaymentCancel from "@/pages/PaymentCancel.jsx";
 import CourseProgressPage from "@/pages/CourseProgressPage.jsx";
 
 
-const socket = io('http://localhost:5000');
+const socket = io('https://mern-lms-z3ed.onrender.com');
 
 function App() {
     // const { toast } = useToast();
